@@ -1,22 +1,24 @@
 package com.sergiomartinrubio.springreactivetwitter;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import org.springframework.data.annotation.Id;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
+
+import java.util.Date;
 
 @Data
 @Document("tweets")
+@NoArgsConstructor
 @AllArgsConstructor
-public class TweetSummary {
+class TweetSummary {
 
-    @Id
+    @MongoId
     @JsonProperty("idStr")
-    private String id;
+    private long id;
 
     @JsonProperty("createdSt")
-    private String createdAt;
+    private Date createdAt;
 
     @JsonProperty("text")
     private String text;
