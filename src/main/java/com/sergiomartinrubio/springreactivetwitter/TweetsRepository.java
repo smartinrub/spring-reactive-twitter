@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 @Repository
-public interface ReactiveMongoRepository extends ReactiveCrudRepository<TweetSummary, String> {
+public interface TweetsRepository extends ReactiveCrudRepository<TweetSummary, String> {
 
     @Tailable
     Flux<TweetSummary> findWithTailableCursorBy();

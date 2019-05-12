@@ -10,7 +10,7 @@ import reactor.core.publisher.Flux;
 @AllArgsConstructor
 public class TwitterController {
 
-    private final ReactiveMongoRepository repository;
+    private final TweetsRepository repository;
 
     @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<TweetSummary> getTweets() {
