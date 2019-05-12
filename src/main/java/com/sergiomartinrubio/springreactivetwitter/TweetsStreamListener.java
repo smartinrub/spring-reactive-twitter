@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class TweetStreamListener implements StreamListener {
+public class TweetsStreamListener implements StreamListener {
 
-    private final ReactiveMongoRepository repository;
+    private final TweetsRepository repository;
 
     @Override
     public void onTweet(Tweet tweet) {
         repository
-                .save(new TweetSummary(String.valueOf(tweet.getId()), tweet.getCreatedAt().toString(), tweet.getText()))
+                .save(new TweetSummary(tweet.getId(), tweet.getCreatedAt(), tweet.getText()))
                 .subscribe(
                         System.out::println,
                         Throwable::printStackTrace,
