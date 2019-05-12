@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.social.twitter.api.impl.TwitterTemplate;
 
 @Configuration
-public class TwitterConfiguration {
+public class TwitterConfig {
 
     @Value("${spring.social.twitter.consumer-key}")
     private String consumerKey;
