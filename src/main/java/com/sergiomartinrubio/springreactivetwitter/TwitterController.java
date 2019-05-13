@@ -1,20 +1,20 @@
 package com.sergiomartinrubio.springreactivetwitter;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.reactivestreams.Publisher;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
 
 @RestController
-@AllArgsConstructor
-public class TwitterController {
+@RequiredArgsConstructor
+class TwitterController {
 
-    private final TweetsRepository repository;
+    private final TweetsProducer producer;
 
-    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<TweetSummary> getTweets() {
-        return repository.findWithTailableCursorBy();
+    @GetMapping(value = "/tweets", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Publisher<TweetSummary> tweets() {
+        return producer.fetchTweets();
     }
 
 }
