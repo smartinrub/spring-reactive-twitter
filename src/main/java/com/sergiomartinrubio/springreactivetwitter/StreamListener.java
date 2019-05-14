@@ -16,7 +16,7 @@ public class StreamListener implements StatusListener {
     @Override
     public void onStatus(Status status) {
         repository
-                .save(new TweetSummary(status.getId(), status.getCreatedAt(), status.getText()))
+                .save(new Tweet(status.getId(), status.getCreatedAt(), status.getText()))
                 .subscribe(
                         System.out::println,
                         Throwable::printStackTrace,

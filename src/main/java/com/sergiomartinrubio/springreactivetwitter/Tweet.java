@@ -11,7 +11,7 @@ import java.util.Date;
 @Document("tweets")
 @NoArgsConstructor
 @AllArgsConstructor
-class TweetSummary {
+class Tweet {
 
     @MongoId
     @JsonProperty("idStr")
