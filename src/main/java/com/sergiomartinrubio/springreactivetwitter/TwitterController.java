@@ -13,7 +13,7 @@ class TwitterController {
     private final TweetsProducer producer;
 
     @GetMapping(value = "/tweets", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Publisher<TweetSummary> tweets() {
+    public Publisher<Tweet> tweets() {
         return producer.fetchTweets();
     }
 

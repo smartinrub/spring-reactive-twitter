@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 @Repository
-interface TweetsRepository extends ReactiveCrudRepository<TweetSummary, String> {
+interface TweetsRepository extends ReactiveCrudRepository<Tweet, String> {
 
     @Tailable
-    Flux<TweetSummary> findWithTailableCursorBy();
+    Flux<Tweet> findWithTailableCursorBy();
 }
