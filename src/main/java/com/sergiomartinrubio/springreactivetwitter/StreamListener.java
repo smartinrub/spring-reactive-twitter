@@ -20,7 +20,7 @@ public class StreamListener implements StatusListener {
                 .subscribe(
                         System.out::println,
                         Throwable::printStackTrace,
-                        () -> System.out.println("Successful!")
+                        () -> System.out.println("OK!")
                 );
     }
 
