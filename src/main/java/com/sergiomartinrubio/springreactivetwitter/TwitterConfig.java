@@ -3,25 +3,34 @@ package com.sergiomartinrubio.springreactivetwitter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.social.twitter.api.impl.TwitterTemplate;
+import twitter4j.TwitterStream;
+import twitter4j.TwitterStreamFactory;
+import twitter4j.conf.ConfigurationBuilder;
 
 @Configuration
 public class TwitterConfig {
 
-    @Value("${spring.social.twitter.consumer-key}")
+    @Value("${oauth.consumer-key}")
     private String consumerKey;
 
-    @Value("${spring.social.twitter.consumer-secret}")
+    @Value("${oauth.consumer-secret}")
     private String consumerSecret;
 
-    @Value("${spring.social.twitter.access-token}")
+    @Value("${oauth.access-token}")
     private String accessToken;
 
-    @Value("${spring.social.twitter.access-token-secret}")
+    @Value("${oauth.access-token-secret}")
     private String accessTokenSecret;
 
     @Bean
-    public TwitterTemplate twitterTemplate() {
-        return new TwitterTemplate(consumerKey, consumerSecret, accessToken, accessTokenSecret);
+    public TwitterStream twitter() {
+        ConfigurationBuilder configurationBuilder =  new ConfigurationBuilder();
+        configurationBuilder
+                .setOAuthConsumerKey(consumerKey)
+                .setOAuthConsumerSecret(consumerSecret)
+                .setOAuthAccessToken(accessToken)
+                .setOAuthAccessTokenSecret(accessTokenSecret);
+        TwitterStreamFactory twitterStreamFactory = new TwitterStreamFactory(configurationBuilder.build());
+        return twitterStreamFactory.getInstance();
     }
 }
