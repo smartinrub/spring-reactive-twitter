@@ -10,7 +10,7 @@ class TweetsProducer {
 
     private final TweetsRepository repository;
 
-    Flux<TweetSummary> fetchTweets() {
+    Flux<Tweet> fetchTweets() {
         return repository.findWithTailableCursorBy();
     }
  }
