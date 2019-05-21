@@ -1,4 +1,4 @@
-package com.sergiomartinrubio.springreactivetwitter;
+package com.sergiomartinrubio.springreactivetwitter.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -11,7 +11,7 @@ import java.util.Date;
 @Document("tweets")
 @NoArgsConstructor
 @AllArgsConstructor
-class Tweet {
+public class Tweet {
 
     @MongoId
     @JsonProperty("idStr")

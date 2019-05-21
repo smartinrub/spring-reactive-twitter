@@ -1,5 +1,7 @@
-package com.sergiomartinrubio.springreactivetwitter;
+package com.sergiomartinrubio.springreactivetwitter.util;
 
+import com.sergiomartinrubio.springreactivetwitter.model.Tweet;
+import com.sergiomartinrubio.springreactivetwitter.repository.TweetsRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import twitter4j.StallWarning;

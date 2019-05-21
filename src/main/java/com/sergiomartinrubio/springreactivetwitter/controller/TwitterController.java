@@ -1,5 +1,7 @@
-package com.sergiomartinrubio.springreactivetwitter;
+package com.sergiomartinrubio.springreactivetwitter.controller;
 
+import com.sergiomartinrubio.springreactivetwitter.util.TweetsProducer;
+import com.sergiomartinrubio.springreactivetwitter.model.Tweet;
 import lombok.RequiredArgsConstructor;
 import org.reactivestreams.Publisher;
 import org.springframework.http.MediaType;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-class TwitterController {
+public class TwitterController {
 
     private final TweetsProducer producer;
 

@@ -1,4 +1,4 @@
-package com.sergiomartinrubio.springreactivetwitter;
+package com.sergiomartinrubio.springreactivetwitter.util;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
