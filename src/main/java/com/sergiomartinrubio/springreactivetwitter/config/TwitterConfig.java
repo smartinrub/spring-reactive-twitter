@@ -1,6 +1,7 @@
 package com.sergiomartinrubio.springreactivetwitter.config;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import twitter4j.TwitterStream;
@@ -8,10 +9,11 @@ import twitter4j.TwitterStreamFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
 @Configuration
-@RequiredArgsConstructor
+@EnableConfigurationProperties(TwitterProperties.class)
 public class TwitterConfig {
 
-    private final TwitterParameters parameters;
+    @Autowired
+    private TwitterProperties parameters;
 
     @Bean
     public TwitterStream twitter() {
