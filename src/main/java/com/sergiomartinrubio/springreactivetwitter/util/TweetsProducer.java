@@ -1,16 +1,18 @@
-package com.sergiomartinrubio.springreactivetwitter;
+package com.sergiomartinrubio.springreactivetwitter.util;
 
+import com.sergiomartinrubio.springreactivetwitter.model.Tweet;
+import com.sergiomartinrubio.springreactivetwitter.repository.TweetsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
 @Component
 @RequiredArgsConstructor
-class TweetsProducer {
+public class TweetsProducer {
 
     private final TweetsRepository repository;
 
-    Flux<TweetSummary> fetchTweets() {
+    public Flux<Tweet> fetchTweets() {
         return repository.findWithTailableCursorBy();
     }
  }
